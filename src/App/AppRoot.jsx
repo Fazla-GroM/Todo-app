@@ -1,6 +1,6 @@
 import { BaseLayout } from 'layouts'
 import { Routes, Route } from 'react-router-dom'
-import { CreateScreen, EditScreen, ListScreen } from 'screens'
+import { CreateScreen, EditScreen, ListScreen, NoMatch } from 'screens'
 
 const AppRoot = () => {
     return (
@@ -9,6 +9,7 @@ const AppRoot = () => {
                 <Route index element={<ListScreen />} />
                 <Route path="edit/:id" element={<EditScreen />} />
                 <Route path="create" element={<CreateScreen />} />
+                <Route path="*" element={<NoMatch />} />
             </Route>
         </Routes>
     )

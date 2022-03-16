@@ -1,5 +1,5 @@
 import { Paper, TextField, Flex, TextareaField, Divider, FilledButton, Text } from 'components'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { todoValidationSchema } from 'validations'
@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet'
 
 const EditScreen = () => {
     const { id } = useParams()
-    const { data } = useGetOne({ resource: 'todos', params: { id } })
+    const { data, isSuccess, isLoading } = useGetOne({ resource: 'todos', params: { id } })
     const updateOneMutation = useUpdateOne()
     const navigate = useNavigate()
 
@@ -52,6 +52,14 @@ const EditScreen = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [updateOneMutation.mutate, id]
     )
+
+    if (isLoading) {
+        return null
+    }
+
+    if (isSuccess && !data) {
+        return <Navigate replace={true} to="/" />
+    }
 
     return (
         <>
