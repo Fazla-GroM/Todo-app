@@ -1,0 +1,6 @@
+export { default as useStorageService } from './useStorageService'
+export { default as useGetList } from './useGetList'
+export { default as useCreateOne } from './useCreateOne'
+export { default as useUpdateOne } from './useUpdateOne'
+export { default as useGetOne } from './useGetOne'
+export { default as useDeleteOne } from './useDeleteOne'
