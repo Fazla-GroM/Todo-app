@@ -68,7 +68,8 @@ const Input = styled('input', {
             field: {
                 borderRadius: '$4',
                 border: '1px solid black',
-                padding: '$4'
+                padding: '$4',
+                minHeight: '$3.6rem'
             }
         },
 
